@@ -6,7 +6,7 @@ Buhos (Concrete Compressive Strength Prediction)
 
 ```markdown
 buhos-api/
-├── data/                       # Formatted raw data in CSV
+├── data/                       # Formatted data in CSV
 │   └── raw/                    # Raw data originally in XLSX
 ├── docker-cfg/                 # Project configuration for the Docker image
 ├── images/                     # Documentation images
