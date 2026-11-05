@@ -6,7 +6,8 @@
 buhos-api/
 ├── data/                       # Formatted data in CSV
 │   └── raw/                    # Raw data originally in XLSX
-├── service/                    # Directory for Docker image creation and model deployment
+├── docker-cfg/                 # Project configuration for Docker image creation
+├── service/                    # Directory for model deployment
 ├── images/                     # Documentation images
 ├── refcalcs/                   # Reference calculations for cross-checking predictions
 ├── nb_eda_fe.ipynb             # Notebook for EDA, feature engineering, and baseline modeling
