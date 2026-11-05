@@ -1,9 +1,9 @@
+import json
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
 
 import joblib
-import uvicorn
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field, ConfigDict
 
@@ -159,4 +159,21 @@ def predict(concrete_sample: ConcreteSample) -> PredictResponse:
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=1313)
+    print("Running dry run test...")
+    if MODEL_PATH.is_file():
+        ml_models["model_pipeline"] = joblib.load(MODEL_PATH)
+        example = {
+            "cement": 540.0,
+            "blast_furnace_slag": 0.0,
+            "fly_ash": 0.0,
+            "silica_fume": 0.0,
+            "water": 162.0,
+            "superplasticizer": 2.5,
+            "coarse_aggregate": 1040.0,
+            "fine_aggregate": 676.0,
+            "age": 28,
+        }
+        res = predict(ConcreteSample(**example))
+        print("Prediction successful:", json.dumps(res.model_dump(), indent=2))
+    else:
+        print(f"Artifact not found at {MODEL_PATH}")

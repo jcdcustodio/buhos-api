@@ -10,6 +10,7 @@ buhos-api/
 ├── service/                    # Directory for model deployment
 ├── images/                     # Documentation images
 ├── refcalcs/                   # Reference calculations for cross-checking predictions
+├── Dockerfile                  # Docker image definition  
 ├── nb_eda_fe.ipynb             # Notebook for EDA, feature engineering, and baseline modeling
 ├── nb_model_dev.ipynb          # Notebook for model training (including tuning and cross-validation)
 ├── nb_train_script.ipynb       # Notebook for packaging the model training as a script
