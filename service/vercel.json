@@ -2,8 +2,7 @@
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "src/predict.py"
+            "destination": "api/predict"
         }
     ]
 }
-
