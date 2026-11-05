@@ -1,8 +1,9 @@
 {
     "rewrites": [
         {
-        "source": "/(.*)",
-        "destination": "/src/predict.py"
+            "source": "/(.*)",
+            "destination": "src/predict.py"
         }
     ]
 }
+
