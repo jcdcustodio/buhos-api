@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer
 
-from train_util import setup_features, setup_format
+from pipeline_util import setup_features, setup_format
 
 SEED = 13
 

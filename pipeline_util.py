@@ -20,7 +20,7 @@ def setup_format(X: pd.DataFrame | pd.Series | dict | list) -> pd.DataFrame:
 def setup_features(X: pd.DataFrame) -> pd.DataFrame:
     """Handles feature engineering within the model pipeline."""
 
-    # Remove irrelevant columns
+    # Remove irrelevant columnss
     X_out = X.drop(columns=["sample_id", "src"], errors="ignore")
 
     # Scale age column into logarithmic values
