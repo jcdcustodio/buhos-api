@@ -1,6 +1,4 @@
-# buhos-api
-
-Buhos (Concrete Compressive Strength Prediction)
+# Buhos (Concrete Compressive Strength Prediction)
 
 ## Directory Overview
 
