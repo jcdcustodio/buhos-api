@@ -13,3 +13,6 @@ dependencies = [
 
 [tool.uv]
 python-preference = "managed"
+
+[tool.vercel]
+entrypoint = "api.predict:app"
