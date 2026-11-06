@@ -9,6 +9,9 @@ wheels/
 # Virtual environments
 .venv
 
+# Jupyter-generated files
+.ipynb_checkpoints
+
 # Folders
 _datasets/
 _dev/
