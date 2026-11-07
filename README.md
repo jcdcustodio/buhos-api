@@ -131,6 +131,39 @@ For the description of each variables, including the derived features during mod
 
 ## Process summary
 
+```mermaid
+flowchart TD
+    D1["UCI Dataset"] & D2["CICLAB-NTUST"] --> RAW["Raw Ingestion & Merge"]
+    subgraph Data ["Data & Preparation"]
+        RAW --> FE["Feature Engineering"]
+        FE --> SPLIT{"Stratified Split (by source)"}
+        SPLIT -->|60%| TR["Train Set"]
+        SPLIT -->|20%| VA["Val Set"]
+        SPLIT -->|20%| TE["Test Set"]
+    end
+
+    subgraph Selection ["Selection & Tuning"]
+        TR --> BASE["Baseline Models"]
+        VA --> EVAL_BASE["Feature Importance, Permutation Importance, SHAP"]
+        BASE --> EVAL_BASE
+        EVAL_BASE --> SHORTLIST["Shortlist Top Models"]
+        TR & VA --> POOL["Train + Val (80%)"]
+        SHORTLIST & POOL --> CV["Stratified CV & Tuning"]
+        CV --> BEST["Select Best Model"]
+    end
+
+    subgraph Production ["Training & Deployment"]
+        POOL --> TRAIN["Fit Final Model"]
+        BEST --> TRAIN
+        TE --> TEST["Evaluate (20% Holdout)"]
+        TRAIN --> TEST
+        TRAIN --> ART[(Model File)]
+        ART --> API["Web Service"]
+        API --> DOCKER["Docker Container"]
+        API --> CLOUD["Cloud"]
+    end
+```
+
 ### Project development
 
 The process of creating this project is summarized as follows:
@@ -185,3 +218,9 @@ The final model is **XGBoost** and the best scores obtained during cross-validat
 
 **Plot of predicted value vs. actual**
 ![Plot of predicted value vs. actual value](images/plot_pred_vs_actual.jpg)
+
+## References
+
+1. American Concrete Institute (2022). Selecting proportions for normal-density and high-density concrete - Guide (ACI PRC-211.1-22). American Concrete Institute.
+2. Cheng, M.-Y., Cao, M.-T., & Dao-Thi, N.-M. (2023). A novel artificial intelligence-aided system to mine historical high-performance concrete data for optimizing mixture design. Expert Systems with Applications, 212, Article 118605. https://doi.org/10.1016/j.eswa.2022.118605
+3. Yeh, I.-C. (1998). Modeling of strength of high-performance concrete using artificial neural networks. Cement and Concrete Research, 28(12), 1797–1808. https://doi.org/10.1016/S0008-8846(98)00165-3
