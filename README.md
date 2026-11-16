@@ -208,7 +208,7 @@ The final model is **XGBoost** and the best scores obtained during cross-validat
 
 | MAE | RMSE | MAPE | R2 | R2 Adjusted |
 | --- | --- | --- | --- | --- |
-| 3.4006 | 5.2762 | 0.1119 | 0.9227 | 0.9220 |
+| 3.4849 | 5.4300 | 0.1100 | 0.9189 | 0.9182 |
 
 **Feature importance plot**
 ![Feature importance of final model](images/feature_importance_final_model.jpg)
