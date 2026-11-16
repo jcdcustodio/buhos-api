@@ -53,6 +53,9 @@ def wrangle_data(datasets: list[Path]) -> pd.DataFrame:
         # Skip row containing the units of each column
         df_chunk = pd.read_csv(file, skiprows=[1])
 
+        # Remove duplicate records
+        df_chunk = df_chunk[~df_chunk.duplicated(keep="first")].reset_index(drop=True)
+
         # Create unique ID and tag source
         df_chunk["sample_id"] = f"s{idx + 1}_" + (df_chunk.index + 1).astype(str)
         df_chunk["src"] = f"src{idx + 1}"
@@ -128,10 +131,10 @@ def train_model(df: pd.DataFrame) -> tuple[Pipeline, dict]:
         ("setup_format", FunctionTransformer(setup_format, validate=False)),
         ("setup_features", FunctionTransformer(setup_features, validate=False)),
         ("model", xgb.XGBRegressor(
-            n_estimators=300, 
+            n_estimators=500, 
             max_depth=4, 
-            min_child_weight=2, 
-            learning_rate=0.3, 
+            min_child_weight=10, 
+            learning_rate=0.3,
             random_state=SEED
         ))
     ])

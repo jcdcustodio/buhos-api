@@ -19,5 +19,5 @@ response = requests.post(url, json=test_input)
 result = response.json()
 
 pred_concrete_strength = result.get("concrete_strength")
-print("Input: ", test_input)
-print("Predicted concrete strength: ", pred_concrete_strength)
+print("Input:", test_input)
+print("Predicted concrete strength:", pred_concrete_strength)
