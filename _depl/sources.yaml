@@ -1,0 +1,78 @@
+sources:
+  src1:
+    file_pattern: "yeh_concrete_strength_data.xls"
+    header_rows: [0]
+    # Single-row header
+    skip_rows_after_header: 0
+    drop_columns: []
+    defaults:
+      silica_fume: 0.0
+    column_map:
+      "cement (component 1)(kg in a m^3 mixture)":
+        target: cement
+        unit_factor: 1.0
+      "blast furnace slag (component 2)(kg in a m^3 mixture)":
+        target: blast_furnace_slag
+        unit_factor: 1.0
+      "fly ash (component 3)(kg in a m^3 mixture)":
+        target: fly_ash
+        unit_factor: 1.0
+      "water (component 4)(kg in a m^3 mixture)":
+        target: water
+        unit_factor: 1.0
+      "superplasticizer (component 5)(kg in a m^3 mixture)":
+        target: superplasticizer
+        unit_factor: 1.0
+      "coarse aggregate (component 6)(kg in a m^3 mixture)":
+        target: coarse_aggregate
+        unit_factor: 1.0
+      "fine aggregate (component 7)(kg in a m^3 mixture)":
+        target: fine_aggregate
+        unit_factor: 1.0
+      "age (day)":
+        target: age
+        unit_factor: 1
+      "concrete compressive strength(mpa, megapascals)":
+        target: compressive_strength
+        unit_factor: 1.0
+
+  src2:
+    file_pattern: "ciclab_ntust_concrete_strength_data.xlsx"
+    # Row 0 holds column names; Row 1 holds units
+    header_rows: [0]
+    # Skip units row (Row 1)
+    skip_rows_after_header: 1
+    # Remove row index column
+    drop_columns: ["no."]
+    defaults: {}
+    column_map:
+      "fine aggregate":
+        target: fine_aggregate
+        unit_factor: 1.0
+      "coarse aggregate":
+        target: coarse_aggregate
+        unit_factor: 1.0
+      "fly ash":
+        target: fly_ash
+        unit_factor: 1.0
+      "silica fume":
+        target: silica_fume
+        unit_factor: 1.0
+      "cement":
+        target: cement
+        unit_factor: 1.0
+      "slag":
+        target: blast_furnace_slag
+        unit_factor: 1.0
+      "water":
+        target: water
+        unit_factor: 1.0
+      "superplasticizer":
+        target: superplasticizer
+        unit_factor: 1.0
+      "age":
+        target: age
+        unit_factor: 1
+      "compressive strength":
+        target: compressive_strength
+        unit_factor: 1.0
