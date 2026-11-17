@@ -47,18 +47,18 @@ All data is sourced from public academic repositories for reproducibility and pe
 
 | Field Name             | Meaning                                                                           | Data Type | Example       |
 | ---------------------- | --------------------------------------------------------------------------------- | --------- | ------------- |
-| `sample_id`            | Deterministic test sample surrogate key                                           | String | `a1b2c3d4...` |
-| `mix_design_id`        | MD5 hash of 8 rounded ingredient masses                                           | String | `9f8e7d6c...` |
-| `cement`               | Cement content ($kg/m^3$)                                                         | Float  | `402.0`       |
-| `blast_furnace_slag`   | Blast furnace slag content ($kg/m^3$)                                             | Float  | `0.0`         |
-| `fly_ash`              | Fly ash content ($kg/m^3$)                                                        | Float  | `0.0`         |
-| `silica_fume`          | Silica fume content ($kg/m^3$)                                                    | Float  | `0.0`         |
-| `coarse_aggregate`     | Coarse aggregate content ($kg/m^3$)                                               | Float  | `992.0`       |
-| `fine_aggregate`       | Fine aggregate content ($kg/m^3$)                                                 | Float  | `732.0`       |
-| `water`                | Mixing water content ($kg/m^3$)                                                   | Float  | `205.0`       |
-| `superplasticizer`     | Superplasticizer admixture ($kg/m^3$)                                             | Float  | `0.0`         |
-| `age` (`age_days`)     | Curing age in days                                                                | Integer | `28`         |
-| `compressive_strength` | Measured compressive strength (MPa) - the target variable in the prediction model | Float | `38.50`       |
+| `sample_id`            | Deterministic test sample surrogate key                                           | String    | `a1b2c3d4...` |
+| `src`                  | Source ID                                                                         | String    | `src1`        |
+| `cement`               | Cement content ($kg/m^3$)                                                         | Float     | `402.0`       |
+| `blast_furnace_slag`   | Blast furnace slag content ($kg/m^3$)                                             | Float     | `0.0`         |
+| `fly_ash`              | Fly ash content ($kg/m^3$)                                                        | Float     | `0.0`         |
+| `silica_fume`          | Silica fume content ($kg/m^3$)                                                    | Float     | `0.0`         |
+| `coarse_aggregate`     | Coarse aggregate content ($kg/m^3$)                                               | Float     | `992.0`       |
+| `fine_aggregate`       | Fine aggregate content ($kg/m^3$)                                                 | Float     | `732.0`       |
+| `water`                | Mixing water content ($kg/m^3$)                                                   | Float     | `205.0`       |
+| `superplasticizer`     | Superplasticizer admixture ($kg/m^3$)                                             | Float     | `0.0`         |
+| `age` (`age_days`)     | Curing age in days                                                                | Integer   | `28`          |
+| `compressive_strength` | Measured compressive strength (MPa) - the target variable in the prediction model | Float     | `38.50`       |
 
 #### Derived Features (for ML)
 
