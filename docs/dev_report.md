@@ -161,13 +161,13 @@ Exact row counts checked/quarantined per run are logged in the Gold DQ semantic 
 - **Suggested Action:** Use the trained XGBoost model to screen candidate mix designs prior to physical trial batching and establish expected strength benchmarks in `SEM_QC_ANALYTICS`.
 - **Limitation:** Predictions reflect laboratory curing conditions in historical datasets and do not account for local aggregate moisture variability, ambient curing temperatures, or admixture brand differences.
 
-1. **Observation:** Public concrete datasets contain exact duplicate test records and edge-case mix proportions that violate physical concrete density bounds.
+2. **Observation:** Public concrete datasets contain exact duplicate test records.
 
-- **Supporting Evidence:** Silver-layer DQ checks (`DQ-UNQ-01`, `DQ-RSN-01`, `DQ-RSN-02`) isolate duplicate rows and out-of-range unit weights before Gold export.
+- **Supporting Evidence:** Silver-layer DQ checks (`DQ-UNQ-01`) isolate duplicate rows before Gold export.
 - **Suggested Action:** Enforce Silver quarantine rules on all future batch plant data ingestions to prevent data leakage and model drift.
 - **Limitation:** Quarantine rules currently flag anomalies for manual review rather than auto-correcting unit conversion errors.
 
-1. **Observation:** Residual tracking (`actual_strength_mpa - predicted_strength_mpa`) enables statistical process control (SPC) across production batches.
+3. **Observation:** Residual tracking (`actual_strength_mpa - predicted_strength_mpa`) enables statistical process control (SPC) across production batches.
 
 - **Supporting Evidence:** Gold view `SEM_QC_ANALYTICS` computes 3-test moving averages, 30-test rolling standard deviations, and CUSUM residuals.
 - **Suggested Action:** Monitor CUSUM residual trends in the operational QC dashboard to detect gradual material quality shifts early.
